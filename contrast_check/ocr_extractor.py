@@ -94,7 +94,7 @@ class OCRExtractor:
         Returns:
             Binary mask with text region marked as True
         """
-        mask = np.zeros(image_shape[:2], dtype=bool)
+        mask = np.zeros(image_shape[:2], dtype=np.uint8)
         points = np.array(bbox, dtype=np.int32)
-        cv2.fillPoly(mask, [points], True)
-        return mask
+        cv2.fillPoly(mask, [points], 1)
+        return mask.astype(bool)

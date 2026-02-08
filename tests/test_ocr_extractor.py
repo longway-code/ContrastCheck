@@ -13,7 +13,7 @@ from contrast_check.ocr_extractor import OCRExtractor
 class TestOCRExtractor(unittest.TestCase):
     """Test cases for OCRExtractor class."""
 
-    @patch("contrast_check.ocr_extractor.PaddleOCR")
+    @patch("paddleocr.PaddleOCR")
     def test_initialization(self, mock_paddle):
         """Test OCRExtractor initialization."""
         OCRExtractor(use_gpu=False, lang="en")
@@ -23,7 +23,7 @@ class TestOCRExtractor(unittest.TestCase):
             use_angle_cls=True, lang="en", use_gpu=False, show_log=False
         )
 
-    @patch("contrast_check.ocr_extractor.PaddleOCR")
+    @patch("paddleocr.PaddleOCR")
     def test_initialization_with_gpu(self, mock_paddle):
         """Test OCRExtractor initialization with GPU."""
         OCRExtractor(use_gpu=True, lang="ch")
@@ -35,7 +35,7 @@ class TestOCRExtractor(unittest.TestCase):
     def test_get_text_region_mask(self):
         """Test text region mask creation."""
         # Create a dummy extractor (without actual PaddleOCR initialization)
-        with patch("contrast_check.ocr_extractor.PaddleOCR"):
+        with patch("paddleocr.PaddleOCR"):
             extractor = OCRExtractor()
 
         # Test with a simple rectangular bbox
@@ -58,7 +58,7 @@ class TestOCRExtractor(unittest.TestCase):
 
     def test_get_text_region_mask_complex_shape(self):
         """Test mask creation with a complex polygon."""
-        with patch("contrast_check.ocr_extractor.PaddleOCR"):
+        with patch("paddleocr.PaddleOCR"):
             extractor = OCRExtractor()
 
         image_shape = (200, 200, 3)
@@ -71,7 +71,7 @@ class TestOCRExtractor(unittest.TestCase):
         self.assertTrue(np.any(mask))
 
     @patch("contrast_check.ocr_extractor.cv2.imread")
-    @patch("contrast_check.ocr_extractor.PaddleOCR")
+    @patch("paddleocr.PaddleOCR")
     def test_extract_text_regions_empty_result(self, mock_paddle, mock_imread):
         """Test extraction with no text detected."""
         # Mock OCR to return empty result
@@ -88,7 +88,7 @@ class TestOCRExtractor(unittest.TestCase):
         self.assertEqual(results, [])
 
     @patch("contrast_check.ocr_extractor.cv2.imread")
-    @patch("contrast_check.ocr_extractor.PaddleOCR")
+    @patch("paddleocr.PaddleOCR")
     def test_extract_text_regions_with_data(self, mock_paddle, mock_imread):
         """Test extraction with mock OCR data."""
         # Mock OCR result format: [bbox, (text, confidence)]
@@ -121,7 +121,7 @@ class TestOCRExtractor(unittest.TestCase):
         self.assertAlmostEqual(results[1]["confidence"], 0.92)
 
     @patch("contrast_check.ocr_extractor.cv2.imread")
-    @patch("contrast_check.ocr_extractor.PaddleOCR")
+    @patch("paddleocr.PaddleOCR")
     def test_extract_text_regions_invalid_image(self, mock_paddle, mock_imread):
         """Test extraction with invalid image path."""
         mock_ocr_instance = Mock()
@@ -136,7 +136,7 @@ class TestOCRExtractor(unittest.TestCase):
             extractor.extract_text_regions("invalid_path.jpg")
 
     @patch("contrast_check.ocr_extractor.cv2.imread")
-    @patch("contrast_check.ocr_extractor.PaddleOCR")
+    @patch("paddleocr.PaddleOCR")
     def test_center_calculation(self, mock_paddle, mock_imread):
         """Test that center point is calculated correctly."""
         mock_ocr_result = [[[[0, 0], [100, 0], [100, 50], [0, 50]], ("Test", 0.99)]]

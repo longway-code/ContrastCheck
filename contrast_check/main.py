@@ -63,9 +63,7 @@ class ContrastAnalyzer:
 
         for idx, region in enumerate(text_regions):
             # Extract the two dominant colors
-            color1, color2 = self.color_extractor.extract_colors(
-                image, region["bbox"]
-            )
+            color1, color2 = self.color_extractor.extract_colors(image, region["bbox"])
 
             # Analyze contrast - calculate_contrast_ratio handles which is lighter/darker
             analysis = self.contrast_checker.analyze_contrast(
@@ -119,12 +117,10 @@ class ContrastAnalyzer:
                 report_lines.append(f"Text #{result['index']}: {result['text']}")
                 report_lines.append(f"  OCR Confidence: {result['confidence']:.1%}")
                 report_lines.append(
-                    f"  Color 1: RGB{result['color_1']} "
-                    f"({result['color_1_hex']})"
+                    f"  Color 1: RGB{result['color_1']} " f"({result['color_1_hex']})"
                 )
                 report_lines.append(
-                    f"  Color 2: RGB{result['color_2']} "
-                    f"({result['color_2_hex']})"
+                    f"  Color 2: RGB{result['color_2']} " f"({result['color_2_hex']})"
                 )
                 report_lines.append(f"  Contrast Ratio: {result['contrast_ratio']}:1")
                 report_lines.append(

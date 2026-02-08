@@ -23,7 +23,9 @@ class ColorExtractor:
         """
         self.n_colors = n_colors
 
-    def _color_distance(self, color1: Tuple[int, int, int], color2: Tuple[int, int, int]) -> float:
+    def _color_distance(
+        self, color1: Tuple[int, int, int], color2: Tuple[int, int, int]
+    ) -> float:
         """
         Calculate Euclidean distance between two RGB colors.
 
@@ -98,7 +100,9 @@ class ColorExtractor:
         if self._color_distance(color1, color2) < min_distance:
             # Try with more clusters and pick the two most distinct ones
             try:
-                kmeans_more = KMeans(n_clusters=min(5, len(pixels_rgb)), random_state=42, n_init=10)
+                kmeans_more = KMeans(
+                    n_clusters=min(5, len(pixels_rgb)), random_state=42, n_init=10
+                )
                 kmeans_more.fit(pixels_rgb)
                 labels_more = kmeans_more.labels_
                 counts_more = np.bincount(labels_more)
@@ -127,7 +131,9 @@ class ColorExtractor:
                 pass
 
             # Fallback: return white and black if colors are too similar
-            if self._color_distance(color1, (255, 255, 255)) > self._color_distance(color1, (0, 0, 0)):
+            if self._color_distance(color1, (255, 255, 255)) > self._color_distance(
+                color1, (0, 0, 0)
+            ):
                 return (color1, (0, 0, 0))
             else:
                 return (color1, (255, 255, 255))

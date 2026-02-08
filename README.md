@@ -76,20 +76,6 @@ uv pip install paddlepaddle-gpu
 
 **Note**: The `--gpu` flag is deprecated in PaddleOCR 3.x and will be ignored. GPU acceleration is automatically enabled when GPU and CUDA are available.
 
-### Important Notes for Mac Users
-
-⚠️ **First Run**: PaddleOCR will download model files (~25 MB) on first initialization. This may take a few minutes depending on your network speed.
-
-⚠️ **Memory & Performance Optimizations**: The tool automatically:
-- Sets `OMP_NUM_THREADS=1` (required for OpenBlas stability)
-- Resizes large images (>1920px) to prevent memory leaks
-- Uses aggressive garbage collection
-- Scales coordinates back to original image dimensions
-
-📊 **Expected Performance**: For large screenshots (1200x2670px):
-- First run: ~60 seconds (model download + processing)
-- Subsequent runs: ~20-30 seconds (processing only)
-
 ## Quick Start
 
 ### Command Line Usage

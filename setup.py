@@ -16,7 +16,7 @@ setup(
     description='A tool for analyzing text-background contrast ratios in UI screenshots',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/longweillw-blip/ContrastCheck',
+    url='https://github.com/longway-code/ContrastCheck',
     packages=find_packages(exclude=['tests', 'tests.*', 'examples']),
     classifiers=[
         'Development Status :: 3 - Alpha',

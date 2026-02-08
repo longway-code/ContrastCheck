@@ -54,10 +54,10 @@ docs = [
 contrastcheck = "contrast_check.main:main"
 
 [project.urls]
-Homepage = "https://github.com/longweillw-blip/ContrastCheck"
-Documentation = "https://github.com/longweillw-blip/ContrastCheck#readme"
-Repository = "https://github.com/longweillw-blip/ContrastCheck"
-"Bug Tracker" = "https://github.com/longweillw-blip/ContrastCheck/issues"
+Homepage = "https://github.com/longway-code/ContrastCheck"
+Documentation = "https://github.com/longway-code/ContrastCheck#readme"
+Repository = "https://github.com/longway-code/ContrastCheck"
+"Bug Tracker" = "https://github.com/longway-code/ContrastCheck/issues"
 
 [tool.black]
 line-length = 88

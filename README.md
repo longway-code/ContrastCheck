@@ -39,7 +39,7 @@ pip install uv
 ### Install from source
 
 ```bash
-git clone https://github.com/longweillw-blip/ContrastCheck.git
+git clone https://github.com/longway-code/ContrastCheck.git
 cd ContrastCheck
 
 # Create virtual environment with uv (Python 3.10+)
@@ -347,7 +347,7 @@ If you use ContrastCheck in your research or project, please cite:
   title = {ContrastCheck: UI Screenshot Contrast Ratio Analyzer},
   author = {ContrastCheck Contributors},
   year = {2026},
-  url = {https://github.com/longweillw-blip/ContrastCheck}
+  url = {https://github.com/longway-code/ContrastCheck}
 }
 ```
 
@@ -355,7 +355,7 @@ If you use ContrastCheck in your research or project, please cite:
 
 If you encounter any issues or have questions:
 
-- Open an issue on [GitHub](https://github.com/longweillw-blip/ContrastCheck/issues)
+- Open an issue on [GitHub](https://github.com/longway-code/ContrastCheck/issues)
 - Check the [examples](examples/) directory for usage examples
 - Read the [WCAG 2.1 documentation](https://www.w3.org/WAI/WCAG21/quickref/) for accessibility guidelines
 

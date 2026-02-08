@@ -1,0 +1,10 @@
+# Core dependencies
+paddleocr>=2.7.0
+paddlepaddle>=2.5.0
+numpy>=1.21.0
+opencv-python>=4.5.0
+Pillow>=9.0.0
+scikit-learn>=1.0.0
+
+# Optional: For GPU support, replace paddlepaddle with:
+# paddlepaddle-gpu>=2.5.0
